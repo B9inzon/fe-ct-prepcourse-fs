@@ -4,6 +4,14 @@ function encontrarNumeroFaltante(numeros) {
   // y retórnalo.
   // Devuelve null si el array es vacío o si no hay números faltantes.
   // Tu código:
+  if (numeros.length === 0) return null;
+  const numerosOrdenados = numeros.sort((a, b) => a - b);
+  for (let i = 0; i < numerosOrdenados.length; i++) {
+    if (numerosOrdenados[i] !== i + numerosOrdenados[0]) {
+      return i + numerosOrdenados[0];
+    }
+  }
+  return null;
 }
 
 module.exports = encontrarNumeroFaltante;
